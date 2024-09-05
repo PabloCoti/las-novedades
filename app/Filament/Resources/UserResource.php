@@ -3,9 +3,10 @@
 namespace App\Filament\Resources;
 
 use App\Models\User;
+use App\Models\Store;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
-use App\Models\Store;
+
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
@@ -109,9 +110,9 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
+            'index'  => Pages\ListUsers::route('/'),
             'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            'edit'   => Pages\EditUser::route('/{record}/edit'),
         ];
     }
 }
