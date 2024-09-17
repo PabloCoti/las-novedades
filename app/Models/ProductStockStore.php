@@ -8,13 +8,16 @@ use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class StockStore extends Model
+class ProductStockStore extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'product_id';
     protected $fillable = [
         'store_id',
         'product_id',
+        'color_id',
+        'size_id',
         'stock',
     ];
 

@@ -16,9 +16,24 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'id'          => 1,
-                'name'        => 'General',
-                'description' => 'Categoría general',
+                'id'   => 1,
+                'name' => 'General',
+            ],
+            [
+                'id'   => 2,
+                'name' => 'Pantalón',
+            ],
+            [
+                'id'   => 3,
+                'name' => 'Camisa',
+            ],
+            [
+                'id'   => 4,
+                'name' => 'Playera',
+            ],
+            [
+                'id'   => 5,
+                'name' => 'Suéter',
             ],
         ];
 

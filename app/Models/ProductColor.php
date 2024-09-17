@@ -2,19 +2,21 @@
 
 namespace App\Models;
 
+use App\Models\Color;
 use App\Models\Product;
-use App\Models\Category;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ProductCategory extends Model
+class ProductColor extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'product_id',
-        'category_id',
+        'color_id',
     ];
 
     public function product()
@@ -22,8 +24,8 @@ class ProductCategory extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function category()
+    public function color()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Color::class);
     }
 }
