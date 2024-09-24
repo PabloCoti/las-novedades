@@ -21,6 +21,24 @@ class Product extends Model
         'special_price',
     ];
 
+    protected $appends = [
+        'category_name',
+    ];
+
+    public function getCategoryNameAttribute()
+    {
+        return $this->product_category->name;
+    }
+
+    public function getCategoryDescriptionAttribute()
+    {
+        $result  = $this->product_category->name;
+        $result .= !empty($this->description)
+            ? ' - ' . $this->description
+            : '';
+        return $result;
+    }
+
     public function getSizesAttribute()
     {
         $sizes = '';

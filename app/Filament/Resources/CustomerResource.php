@@ -4,9 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Models\Customer;
 use App\Filament\Resources\CustomerResource\Pages;
-use App\Filament\Resources\CustomerResource\RelationManagers;
 
-use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Tables\Columns;
@@ -16,9 +14,7 @@ use Filament\Forms\Components;
 use Filament\Resources\Resource;
 use Filament\Support\Enums\Alignment;
 
-use Illuminate\View\ComponentSlot;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CustomerResource extends Resource
 {
@@ -41,6 +37,11 @@ class CustomerResource extends Resource
         return 'cliente';
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->whereNot('id', 1);
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -50,7 +51,13 @@ class CustomerResource extends Resource
                         Components\TextInput::make('tributary_number')
                             ->label('NIT')
                             ->required()
-                            ->numeric(),
+                            ->numeric()
+                            ->rules(function ($context, $record)
+                            {
+                                return ($context == 'edit')
+                                    ? 'unique:customers,tributary_number,' . $record->id
+                                    : 'unique:customers,tributary_number';
+                            }),
                         Components\TextInput::make('name')
                             ->label('Nombre')
                             ->required(),

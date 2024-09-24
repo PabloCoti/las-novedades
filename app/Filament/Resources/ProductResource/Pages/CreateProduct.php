@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Blade;
 
 class CreateProduct extends CreateRecord
 {
-    protected static string $view     = 'filament.pages.product.create';
+    protected static string $view     = 'filament.pages.create';
     protected static string $resource = ProductResource::class;
 
     public function form(Form $form): Form

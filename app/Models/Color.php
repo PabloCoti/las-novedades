@@ -13,4 +13,9 @@ class Color extends Model
         'name',
         'hex',
     ];
+
+    public function product_colors()
+    {
+        return $this->hasMany(ProductColor::class);
+    }
 }
