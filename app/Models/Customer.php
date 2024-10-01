@@ -12,11 +12,12 @@ class Customer extends Model
     use HasFactory;
 
     protected $fillable = [
+        'active',
         'special',
         'name',
         'email',
         'phone',
-        'address',
+        'tributary_number',
     ];
 
     public function sales()
