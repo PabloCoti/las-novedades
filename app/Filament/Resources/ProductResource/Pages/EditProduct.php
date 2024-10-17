@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Blade;
 
 class EditProduct extends EditRecord
 {
-    protected static string $view     = 'filament.pages.product.create';
+    protected static string $view     = 'filament.pages.create';
     protected static string $resource = ProductResource::class;
 
     public $product_id;

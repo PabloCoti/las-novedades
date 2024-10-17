@@ -20,6 +20,11 @@ class Customer extends Model
         'tributary_number',
     ];
 
+    public function getNitNameAttribute()
+    {
+        return "{$this->tributary_number} - {$this->name}";
+    }
+
     public function sales()
     {
         return $this->hasMany(Sale::class);
