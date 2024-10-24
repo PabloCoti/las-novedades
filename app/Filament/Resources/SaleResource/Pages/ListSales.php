@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\SaleResource\Pages;
 
-// require 'vendor/autoload.php';
-
 use Carbon\Carbon;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
